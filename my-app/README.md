@@ -1,16 +1,70 @@
-# React + Vite
+# 🛒 Catálogo de Produtos – Otimização de Performance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Introdução
+Este projeto é um catálogo de produtos desenvolvido em React, com foco em boas práticas de performance.  
+Durante o processo, foram aplicadas técnicas de otimização como **lazy loading de imagens**, **conversão para WebP/AVIF**, **minificação de CSS/JS** e **uso de cache**.
 
-Currently, two official plugins are available:
+---📷 Print do relatório inicial:
+![Relatório inicial](prints/lighthouse-inicial.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+📊 Relatórios de Performance
+🔹 Relatório Inicial
+Solicitações: 19
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Transferência: 1,7 kB
 
-## Expanding the ESLint configuration
+Recursos carregados: 2,1 MB
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tempo de carregamento:
+
+DOMContentLoaded: 1,87 s
+
+Load: 2,19 s
+
+Conclusão: 4,44 s
+
+Principais gargalos:
+
+Imagens JPEG pesadas (20160731_100139.jpg, 20160731_102209.jpg, perfume-2142792_1280.jpg).
+
+Scripts e CSS não minificados.
+
+
+📷 Print do relatório final:
+![Relatório final](prints/lighthouse-final.png)
+🔹 Relatório Final
+Solicitações: 22
+
+Transferência: 2,6 kB
+
+Recursos carregados: 1,5 MB
+
+Tempo de carregamento:
+
+DOMContentLoaded: 1,51 s
+
+Load: 1,78 s
+
+Conclusão: 3,01 s
+
+Melhorias confirmadas:
+
+Imagens convertidas para WebP/AVIF (produto1.webp, produto2.avif, produto3.avif).
+
+Lazy loading ativo.
+
+Scripts e CSS cacheados e minificados.
+
+Redução de ~600 KB no peso total e ~32% no tempo de carregamento.
+
+
+
+✅ Conclusão
+As otimizações aplicadas resultaram em:
+
+Página mais leve e rápida.
+
+Experiência mais fluida para o usuário.
+
+Documentação clara com comparativo visual dos resultados.

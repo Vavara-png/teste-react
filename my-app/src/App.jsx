@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import ProdutoCard from "./components/ProdutoCard";
+import produto1 from './images/produto1.webp';
+import produto2 from './images/produto2.avif';
+import produto3 from './images/produto3.avif';
 import './App.css';
 
 const mockProdutos = [
@@ -7,21 +10,21 @@ const mockProdutos = [
     id: 1,
     nome: 'Produto 1',
     preco: 29.99,
-    imagem: 'https://1.bp.blogspot.com/-FY3BafmX31g/V53zoYefqyI/AAAAAAAACAo/mvvWeLJifN8Od5YBoRjqPr44o6IMvGrmwCLcB/s1600/20160731_100139.jpg',
+    imagem: produto1, // versão otimizada
     descricao: 'Descrição do produto 1'
   },
   {
     id: 2,
     nome: 'Produto 2',
     preco: 49.99,
-    imagem: 'https://1.bp.blogspot.com/-ZcJwiq7NTQg/V535g7T-jTI/AAAAAAAACBY/Mh0jfgoIeYwJCSoHhzHCj2Pq_LOWaGBAACLcB/s1600/20160731_102209.jpg',
+    imagem: produto2,
     descricao: 'Descrição do produto 2'
   },
   {
     id: 3,
     nome: 'Produto 3',
     preco: 19.99,
-    imagem: 'https://cdn.pixabay.com/photo/2017/03/14/11/36/perfume-2142792_1280.jpg',
+    imagem: produto3,
     descricao: 'Descrição do produto 3'
   }
 ];
@@ -39,7 +42,7 @@ function App() {
     setTimeout(() => {
       setProdutos(mockProdutos);
       setLoading(false);
-    }, 2000);
+    }, 1000); // reduzido para 1s apenas como simulação
   }, []);
 
   const handleSubmit = (e) => {
@@ -47,10 +50,10 @@ function App() {
     if (nome.trim() === '' || preco === '' || descricao.trim() === '') return;
 
     const novoProduto = {
-      id: Date.now(), // Simples ID único
+      id: Date.now(),
       nome: nome.trim(),
       preco: parseFloat(preco),
-      imagem: imagem || 'https://via.placeholder.com/150',
+      imagem: imagem || '/images/placeholder.avif', // imagem padrão se não for fornecida
       descricao: descricao.trim()
     };
 
