@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import ProdutoCard from "./components/ProdutoCard";
-import produto1 from './images/produto1.webp';
-import produto2 from './images/produto2.avif';
-import produto3 from './images/produto3.avif';
 import './App.css';
 
 const mockProdutos = [
@@ -10,21 +7,21 @@ const mockProdutos = [
     id: 1,
     nome: 'Produto 1',
     preco: 29.99,
-    imagem: produto1, // versão otimizada
+    imagem: '/images/produto1.webp',
     descricao: 'Descrição do produto 1'
   },
   {
     id: 2,
     nome: 'Produto 2',
     preco: 49.99,
-    imagem: produto2,
+    imagem: '/images/produto2.webp',
     descricao: 'Descrição do produto 2'
   },
   {
     id: 3,
     nome: 'Produto 3',
     preco: 19.99,
-    imagem: produto3,
+    imagem: '/images/produto3.webp',
     descricao: 'Descrição do produto 3'
   }
 ];
@@ -53,7 +50,7 @@ function App() {
       id: Date.now(),
       nome: nome.trim(),
       preco: parseFloat(preco),
-      imagem: imagem || '/images/placeholder.avif', // imagem padrão se não for fornecida
+      imagem: imagem || '', // imagem padrão se não for fornecida
       descricao: descricao.trim()
     };
 
@@ -86,7 +83,7 @@ function App() {
         />
         <input 
           type="text" 
-          placeholder="Imagem (URL opcional)" 
+          placeholder="URL da imagem" 
           value={imagem} 
           onChange={(e) => setImagem(e.target.value)} 
         />
@@ -103,14 +100,8 @@ function App() {
         <p>Carregando...</p>
       ) : (
         <div className="produtos-lista">
-          {produtos.map(produto => (
-            <ProdutoCard 
-              key={produto.id} 
-              nome={produto.nome} 
-              preco={produto.preco} 
-              imagem={produto.imagem} 
-              descricao={produto.descricao} 
-            />
+          {produtos.map((p) => (
+            <ProdutoCard key={p.id} produto={p} />
           ))}
         </div>
       )}

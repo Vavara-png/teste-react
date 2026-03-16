@@ -1,13 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-app</title>
+    <title>Catálogo de Produtos</title>
+
+    <!-- Preload de CSS principal -->
+    <link rel="preload" href="/src/App.css" as="style" />
+
+    <!-- Carregamento real do CSS -->
+    <link rel="stylesheet" href="/src/App.css" />
+
+    <!-- Critical CSS inline (layout básico) -->
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      h1 {
+        text-align: center;
+        margin: 20px 0;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Script principal com defer para não bloquear o HTML -->
+    <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>

@@ -1,18 +1,19 @@
-import './ProdutoCard.css';
+import "./ProdutoCard.css";
 
-function ProdutoCard({ nome, preco, imagem, descricao }) {
+function ProdutoCard({ produto }) {
   return (
     <div className="produto-card">
-      <img 
-        src={imagem} 
-        alt={nome} 
-        loading="lazy" 
-        width="200" 
-        height="150" 
+      <img
+        src={produto.imagem}
+        alt={produto.nome}
+        loading="lazy"
+        width="200"
+        height="150"
       />
-      <h3>{nome}</h3>
-      <p className="preco">R$ {preco.toFixed(2)}</p>
-      <p className="descricao">{descricao}</p>
+
+      <h3>{produto.nome}</h3>
+      <p className="preco">R$ {produto.preco.toFixed(2)}</p>
+      <p className="descricao">{produto.descricao}</p>
     </div>
   );
 }
